@@ -60,6 +60,7 @@ private:
   std::string m_name;
   std::string m_reason;
   RegisterMap m_registers;
+  unsigned int m_signal;
 };
 
 class JThreadsInfo : public Parser<JThreadsInfo> {

@@ -58,9 +58,9 @@ support::endianness ProcessInfo::GetEndian() const { return m_endian; }
 
 //====== ThreadInfo ============================================================
 ThreadInfo::ThreadInfo(StringRef name, StringRef reason, RegisterMap registers,
-                       unsigned int)
+                       unsigned int signal)
     : m_name(name.str()), m_reason(reason.str()),
-      m_registers(std::move(registers)) {}
+      m_registers(std::move(registers)), m_signal(signal) {}
 
 const RegisterValue *ThreadInfo::ReadRegister(unsigned int Id) const {
   auto Iter = m_registers.find(Id);
