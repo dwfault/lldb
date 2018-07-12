@@ -614,7 +614,7 @@ lldb_info''' % (options.max_frames, options.max_history, addr)
     expr_options.SetTryAllThreads(True)
     expr_options.SetLanguage(lldb.eLanguageTypeObjC_plus_plus)
     expr_options.SetPrefix(expr_prefix)
-    expr = expr_prefix + expr
+    expr = expr_prefix + expr                                                   # Violent fix by dwfault
     expr_sbvalue = frame.EvaluateExpression(expr, expr_options)
     if options.verbose:
         print "expression:"
@@ -1160,7 +1160,7 @@ baton.matches[1].addr = 0;'''
             expr = get_iterate_memory_expr(
                 options, process, user_init_code, 'baton.matches')
             arg_str_description = 'malloc block that contains %s' % ptr_expr
-            expr = expr_prefix + expr
+            expr = expr_prefix + expr                                           # Violent fix by dwfault
             total_matches += display_match_results(
                 process, result, options, arg_str_description, expr, True, expr_prefix)
         return total_matches
